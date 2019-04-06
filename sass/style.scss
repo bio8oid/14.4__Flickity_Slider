@@ -1,0 +1,105 @@
+/* external css: flickity.css */
+
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script:400,700|Fascinate+Inline|Fredericka+the+Great|Pacifico&subset=latin-ext');
+
+
+
+/*
+font-family: 'Pacifico', cursive;
+font-family: 'Dancing Script', cursive;
+font-family: 'Fascinate Inline', cursive;
+font-family: 'Fredericka the Great', cursive; 
+*/
+
+
+* { box-sizing: border-box; }
+
+body { 
+  font-family: sans-serif;
+  margin: 0 ;
+  padding: 0;
+}
+
+h1 {
+  font-size: 180px;
+  font-weight: 50;
+  font-family: 'Fredericka the Great', cursive;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 5px 5px 10px #000;
+  opacity: 0.9 ;
+}
+
+.container {
+  max-width: 1000px;
+  height: auto;
+  margin: auto;
+}
+
+.carousel {
+  background: #fff;
+}
+
+.carousel-cell {
+  width: 100%;
+  min-height: 50vh;
+  height: 50%;
+  background: #8C8;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+
+}
+.button {
+  font-size: 16px;
+  font-weight: 300;
+  position: absolute;
+  z-index: 1;
+  margin-right: 130px;
+  background: #333;
+  color: #fff;
+  border-bottom-left-radius: 5px;
+  padding:10px;
+  border: none;
+}
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.progress-bar {
+  height: 20px;
+  width: 0;
+  background: #333;
+}
+
+.flickity-prev-next-button {
+  display: none;
+  }
+
+@media(max-width: 850px) {
+
+h1 {
+  font-size: 100px;
+  }
+
+}
+
+@media(max-width: 500px) {
+
+h1 {
+  font-size: 60px;
+  }
+  
+}
