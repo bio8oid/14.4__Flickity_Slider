@@ -13,16 +13,16 @@ window.onload=function(){
 	for(var i = 0; i < carouselData.length; i++){
 		//console.log(carouselData);
 		listItems += Mustache.render(templateList, carouselData[i]);
-    console.log(listItems);
-	}
+    	console.log(listItems);
+	
 		
-	var fullCarousel = Mustache.render(templateList); 
+	var fullCarousel = Mustache.render(templateList, {listItems}); 
 	
 	var results = document.getElementById('results');
 
 	results.insertAdjacentHTML('beforeend', fullCarousel);
 
-
+}
 
 
 
