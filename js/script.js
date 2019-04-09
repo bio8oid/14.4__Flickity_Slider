@@ -1,6 +1,33 @@
 
 window.onload=function(){
 
+
+
+	var templateList = document.getElementById('template-cell-list').innerHTML;
+
+	Mustache.parse(templateList);
+	
+	var listItems = '';
+
+	
+	for(var i = 0; i < carouselData.length; i++){
+		//console.log(carouselData);
+		listItems += Mustache.render(templateList, carouselData[i]);
+    console.log(listItems);
+	}
+		
+	var fullCarousel = Mustache.render(templateList); 
+	
+	var results = document.getElementById('results');
+
+	results.insertAdjacentHTML('beforeend', fullCarousel);
+
+
+
+
+
+// Freaky Carousel \\
+
 var elem = document.querySelector('.carousel');
 var flkty = new Flickity( elem, {
   cellAlign: 'left',
@@ -35,3 +62,5 @@ buttonGroup.addEventListener( 'click', function( event ) {
 });
 
 }
+
+
