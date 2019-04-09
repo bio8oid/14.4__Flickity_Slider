@@ -15,14 +15,14 @@ window.onload=function(){
 		listItems += Mustache.render(templateList, carouselData[i]);
     	console.log(listItems);
 	
-		
+	
 	var fullCarousel = Mustache.render(templateList, {listItems}); 
 	
 	var results = document.getElementById('results');
 
 	results.insertAdjacentHTML('beforeend', fullCarousel);
 
-}
+	}
 
 
 
