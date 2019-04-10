@@ -18,7 +18,7 @@ body {
   font-family: sans-serif;
   margin: 0 ;
   padding: 0;
-  background: #aaddff;
+  background: #aadaff;
 }
 
 h1 {
@@ -33,10 +33,17 @@ h1 {
   opacity: 0.9;
 }
 
+
+
 .container {
   max-width: 1000px;
   height: auto;
   margin: auto;
+  p{
+    color: #fff;
+    font-size: 40px;
+  font-weight: 700;
+  }
 }
 
 .carousel {
@@ -61,7 +68,7 @@ h1 {
   line-height: 200px;
   font-size: 80px;
   color: white;
-  content: counter(carousel-cell);
+  //content: counter(carousel-cell);
 
 }
 
@@ -75,6 +82,11 @@ h1 {
   border-bottom-left-radius: 5px;
   padding:10px;
   border: none;
+  opacity: 0.8;
+  &:hover {
+    background: #F90;
+
+  }
 }
 
 .button-group {
@@ -86,11 +98,50 @@ h1 {
   height: 20px;
   width: 0;
   background: #333;
+
 }
 
 .flickity-prev-next-button {
   display: none;
+  position: absolute;
+  transform: translateY( -28vh);
+  //z-index: 20;
+  //border: 2px solid orange;
+
   }
+
+  .flickity-button {
+  background: #333;
+  //transform: translateY( -25vh);
+}
+.flickity-button:hover {
+  background: #F90;
+}
+
+.flickity-prev-next-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  opacity: 0.7;
+  //padding: 20px;
+}
+/* icon color */
+.flickity-button-icon {
+  fill: white;
+//border: 2px solid orange;
+}
+/* position outside */
+.flickity-prev-next-button.previous {
+  left: 40px;
+  //right: 140px;
+}
+.flickity-prev-next-button.next {
+  right: 40px;
+  //left: -60px;
+}
+
+// Map \\
+
 
 #map {
   height: 50vh;
@@ -99,7 +150,7 @@ h1 {
 
 
 
-
+// Media \\
 
 
 @media(max-width: 850px) {
