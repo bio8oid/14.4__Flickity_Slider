@@ -8,9 +8,95 @@
 // Initialize and add the map
 
 window.initMap = function(){
-  // The location 
 
-  var location = [
+  // The map, centered at location
+
+ var map = new google.maps.Map(document.getElementById('map'), {zoom: 3, center: carouselData[0].coords});
+
+//var markerTokyo = new google.maps.Marker({position: carouselData[0].coords, map: map});
+//var markerParis = new google.maps.Marker({position: carouselData[1].coords, map: map});
+//var markerBrussels = new google.maps.Marker({position: carouselData[2].coords, map: map});
+//var markerBasel = new google.maps.Marker({position: carouselData[3].coords, map: map});
+//var markerBangkok = new google.maps.Marker({position: carouselData[4].coords, map: map});
+
+//var marker;
+	//console.log(marker);
+// Loop placing markers on map
+
+var marker = new google.maps.Marker({position: carouselData[0].coords, map: map});
+
+for(var i in carouselData){
+		marker[i] = new google.maps.Marker({position: carouselData[i].coords, map: map});
+//console.log(marker[i]);
+}
+
+//marker[i].addListener('click', function([event]){
+		//flkty.select( [i] );
+		//});
+
+marker[0].addListener('click', function(){
+flkty.select( 0 );
+});
+marker[1].addListener('click', function(){
+flkty.select( 1 );
+});
+marker[2].addListener('click', function(){
+flkty.select( 2 );
+});
+marker[3].addListener('click', function(){
+flkty.select( 3 );
+});
+marker[4].addListener('click', function(){
+flkty.select( 4 );
+})
+
+//markerTokyo.addListener('click', function(){
+//flkty.select( 0 );
+//});
+//markerParis.addListener('click', function(){
+//flkty.select( 1 );
+//});
+//markerBrussels.addListener('click', function(){
+//flkty.select( 2 );
+//});
+//markerBasel.addListener('click', function(){
+//flkty.select( 3 );
+//});
+//markerBangkok.addListener('click', function(){
+//flkty.select( 4 );
+//});
+
+	
+var flkty = new Flickity('.carousel');
+flkty.on( 'change', function( index ) {
+  console.log('Flickity change ' + index );
+map.panTo(carouselData[index].coords);
+map.setZoom(7);
+});
+i
+/*
+
+marker.addListener('click', function(){
+			if ( !matchesSelector( event.target, '.button' ) ) {
+    return;
+  }
+  var selector = event.target.getAttribute('data-selector');
+  flkty.selectCell( selector );
+		});	
+
+
+
+  var infos = document.querySelectorAll('#infos');
+console.log(infos);
+
+  marker.addListener('click', function(){
+
+			for(var i = 0; i < infos.length; i++){
+		infos[i].innerHTML = 'You clicked marker toko';
+	}
+});	
+
+var location = [
 
   {
   	lat: 35.680,
@@ -33,32 +119,6 @@ window.initMap = function(){
   	lng: 100.510
   }
   ];
-  
-  // The map, centered at location
-
- var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 3, center: location[0]});
-
-// Loop placing markers on map
-
-  for(var i = 0; i < location.length; i++){
-	var marker = new google.maps.Marker({position: location[i], map: map});
-	console.log(marker);
-	}
-
-	
-
-/*
-  var infos = document.querySelectorAll('#infos');
-console.log(infos);
-
-  marker.addListener('click', function(){
-
-			for(var i = 0; i < infos.length; i++){
-		infos[i].innerHTML = 'You clicked marker toko';
-	}
-});	
-
  */
 
 
@@ -100,12 +160,12 @@ console.log(infos);
 	
 	for(var i = 0; i < carouselData.length; i++){
 		//console.log(carouselData);
-		listItems += Mustache.render(templateList, carouselData[i]);
+		listItems = Mustache.render(templateList, carouselData[i]);
     	console.log(listItems);
-
-	var fullCarousel = Mustache.render(templateList, {listItems}); 
+    	
+	var fullCarousel = Mustache.render(templateList, listItems);
 	var results = document.getElementById('results');
-	results.insertAdjacentHTML('beforeend', fullCarousel);
+	results.insertAdjacentHTML('beforeend', listItems);
 	}
 
 
