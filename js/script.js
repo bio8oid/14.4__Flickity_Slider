@@ -1,29 +1,75 @@
+'use strict';
+(function(){ 
 
-window.onload=function(){
+
+// Google Maps \\
 
 
+// Initialize and add the map
+window.initMap = function(){
+
+// The map, centered at location
+var map = new google.maps.Map(document.getElementById('map'), {zoom: 3, center: carouselData[0].coords});
+
+// Location marker
+var marker = new google.maps.Marker({position: carouselData[0].coords, map: map});
+
+// Loop placing markers on map
+for(var i in carouselData){
+		marker[i] = new google.maps.Marker({position: carouselData[i].coords, map: map});
+		//console.log(marker[i]);
+}
+//marker[i].addListener('click', function(){
+		//flkty.select( [i] );
+		//});
+
+marker[0].addListener('click', function(){
+flkty.select( 0 );
+});
+marker[1].addListener('click', function(){
+flkty.select( 1 );
+});
+marker[2].addListener('click', function(){
+flkty.select( 2 );
+});
+marker[3].addListener('click', function(){
+flkty.select( 3 );
+});
+marker[4].addListener('click', function(){
+flkty.select( 4 );
+})
+
+// Pan and zoom acording to carousel cell number
+
+var flkty = new Flickity('.carousel');
+flkty.on( 'change', function( index ) {
+  console.log('Flickity change ' + index );
+map.panTo(carouselData[index].coords);
+map.setZoom(7);
+});
+
+};
+
+
+
+// Mustache \\
 
 	var templateList = document.getElementById('template-cell-list').innerHTML;
 
 	Mustache.parse(templateList);
-	
+
 	var listItems = '';
 
 	
 	for(var i = 0; i < carouselData.length; i++){
 		//console.log(carouselData);
-		listItems += Mustache.render(templateList, carouselData[i]);
+		listItems = Mustache.render(templateList, carouselData[i]);
     	console.log(listItems);
-	
-	
-	var fullCarousel = Mustache.render(templateList, {listItems}); 
-	
+
+	var fullCarousel = Mustache.render(templateList, listItems);
 	var results = document.getElementById('results');
-
-	results.insertAdjacentHTML('beforeend', fullCarousel);
-
+	results.insertAdjacentHTML('beforeend', listItems);
 	}
-
 
 
 // Freaky Carousel \\
@@ -33,8 +79,13 @@ var flkty = new Flickity( elem, {
   cellAlign: 'left',
   pageDots: false,
   hash: true,
+  //autoPlay: true
 });
 
+flkty.on( 'select', function( index ) {
+
+
+});
 
 // Progress Bar \\
 
@@ -61,6 +112,4 @@ buttonGroup.addEventListener( 'click', function( event ) {
   flkty.selectCell( selector );
 });
 
-}
-
-
+})(); 
