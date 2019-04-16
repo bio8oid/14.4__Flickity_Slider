@@ -14,6 +14,7 @@ body {
   font-family: sans-serif;
   margin: 0;
   padding: 0;
+  background: #aadaff;
 }
 
 h1 {
@@ -37,6 +38,12 @@ h1 {
   margin: auto;
 }
 
+.container p {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 700;
+}
+
 .carousel {
   background: #fff;
 }
@@ -49,6 +56,7 @@ h1 {
   margin: 0 auto;
   background-size: cover;
   background-position: center center;
+  counter-increment: carousel-cell;
 }
 
 /* cell number */
@@ -70,6 +78,11 @@ h1 {
   border-bottom-left-radius: 5px;
   padding: 10px;
   border: none;
+  opacity: 0.8;
+}
+
+.button:hover {
+  background: #F90;
 }
 
 .button-group {
@@ -87,6 +100,42 @@ h1 {
 
 .flickity-prev-next-button {
   display: none;
+  position: absolute;
+  transform: translateY(-28vh);
+}
+
+.flickity-button {
+  background: #333;
+}
+
+.flickity-button:hover {
+  background: #F90;
+}
+
+.flickity-prev-next-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  opacity: 0.7;
+}
+
+/* icon color */
+.flickity-button-icon {
+  fill: white;
+}
+
+/* position outside */
+.flickity-prev-next-button.previous {
+  left: 40px;
+}
+
+.flickity-prev-next-button.next {
+  right: 40px;
+}
+
+#map {
+  height: 50vh;
+  width: 100%;
 }
 
 @media (max-width: 850px) {
