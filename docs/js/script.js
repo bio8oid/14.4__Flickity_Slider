@@ -15,7 +15,6 @@ var map = new google.maps.Map(document.getElementById('map'), {zoom: 3, center: 
 var marker = new google.maps.Marker({position: carouselData[0].coords, map: map});
 
 // Loop placing markers on map
-
 for(let i in carouselData){
 	marker[i] = new google.maps.Marker({position: carouselData[i].coords, map: map});
 
@@ -23,13 +22,11 @@ for(let i in carouselData){
         flkty.select(i);
       });
 }
-  
 
 // Pan and zoom acording to carousel cell number
 
 var flkty = new Flickity('.carousel');
 flkty.on( 'change', function( index ) {
-
 	map.setZoom(3);
 	map.panTo(carouselData[index].coords);
 	map.setZoom(7);
@@ -62,10 +59,6 @@ var flkty = new Flickity( elem, {
   //autoPlay: true
 });
 
-flkty.on( 'select', function( index ) {
-
-
-});
 
 // Progress Bar \\
 
