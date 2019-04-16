@@ -99,6 +99,7 @@ h1 {
 }
 
 .flickity-prev-next-button {
+  display: none;
   position: absolute;
   transform: translateY(-28vh);
 }

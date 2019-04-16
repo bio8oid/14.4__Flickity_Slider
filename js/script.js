@@ -15,41 +15,23 @@ var map = new google.maps.Map(document.getElementById('map'), {zoom: 3, center: 
 var marker = new google.maps.Marker({position: carouselData[0].coords, map: map});
 
 // Loop placing markers on map
-for(var i in carouselData){
-		marker[i] = new google.maps.Marker({position: carouselData[i].coords, map: map});
-		//console.log(marker[i]);
-}
-//marker[i].addListener('click', function(){
-		//flkty.select( [i] );
-		//});
+for(let i in carouselData){
+	marker[i] = new google.maps.Marker({position: carouselData[i].coords, map: map});
 
-marker[0].addListener('click', function(){
-flkty.select( 0 );
-});
-marker[1].addListener('click', function(){
-flkty.select( 1 );
-});
-marker[2].addListener('click', function(){
-flkty.select( 2 );
-});
-marker[3].addListener('click', function(){
-flkty.select( 3 );
-});
-marker[4].addListener('click', function(){
-flkty.select( 4 );
-})
+	marker[i].addListener("click", function() {
+        flkty.select(i);
+      });
+}
 
 // Pan and zoom acording to carousel cell number
 
 var flkty = new Flickity('.carousel');
 flkty.on( 'change', function( index ) {
-  console.log('Flickity change ' + index );
-map.panTo(carouselData[index].coords);
-map.setZoom(7);
-});
-
+	map.setZoom(3);
+	map.panTo(carouselData[index].coords);
+	map.setZoom(7);
+	});
 };
-
 
 
 // Mustache \\
@@ -59,16 +41,11 @@ map.setZoom(7);
 	Mustache.parse(templateList);
 
 	var listItems = '';
-
 	
 	for(var i = 0; i < carouselData.length; i++){
-		//console.log(carouselData);
 		listItems = Mustache.render(templateList, carouselData[i]);
-    	console.log(listItems);
-
-	var fullCarousel = Mustache.render(templateList, listItems);
-	var results = document.getElementById('results');
-	results.insertAdjacentHTML('beforeend', listItems);
+		var results = document.getElementById('results');
+		results.insertAdjacentHTML('beforeend', listItems);
 	}
 
 
@@ -82,13 +59,8 @@ var flkty = new Flickity( elem, {
   //autoPlay: true
 });
 
-flkty.on( 'select', function( index ) {
-
-
-});
 
 // Progress Bar \\
-
 
 var progressBar = document.querySelector('.progress-bar')
 
