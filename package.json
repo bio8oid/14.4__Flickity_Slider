@@ -38,7 +38,7 @@
     "build:imagemin-cli": "imagemin src/images/* --out-dir=images",
     "build:remove": "rm -r docs",
     "build:dirs": "mkdirp docs",
-    "build:copydir": "cp index.html -r css images js docs/",
+    "build:copydir": "cp index.html -r css images vendor js docs/",
     "watch": "npm-run-all -p watch:*",
     "watch:sassprefixer": "onchange sass/*.scss -- npm-run-all -p sassprefixer:*",
     "watch:browsersync": "browser-sync start --server --files css/*.css *.html js/*.js",
