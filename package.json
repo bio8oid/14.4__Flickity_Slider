@@ -4,7 +4,7 @@
   "description": "My project link:",
   "main": "index.js",
   "dependencies": {
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.27.10",
     "desandro-matches-selector": "^2.0.2",
     "ev-emitter": "^1.1.1",
     "fizzy-ui-utils": "^2.0.7",
